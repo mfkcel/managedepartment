@@ -1,0 +1,29 @@
+#login{
+	border: 2px solid green;
+	border-radius: 25px;
+	margin: 30% auto;
+	
+	font: bold 20px 宋体;
+	padding: 15px;
+	
+}
+
+#login table{
+	border-spacing: 5px 25px;
+}
+
+#pageheader #left{
+	text-align: left;
+}
+
+#pageheader #right{
+	text-align: right;
+}
+
+#pageheader{
+	margin-top: 5px;
+	font-size: 25px;
+	color: white;
+	padding: 10px;
+	line-height: 25px;
+}
