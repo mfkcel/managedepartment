@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
 
 import com.mfkcel.dao.UserDao;
@@ -129,4 +130,17 @@ public class UserDaoImpl implements UserDao {
 		return rUser;
 	}
 	
+	public User login6(User user) {
+		String sql = "select * from t_user where userName = ? and password = ?";
+		User tUser = new User();
+		jdbcTemplate.query(sql, new Object[]{user.getUserName(), user.getPassword()}, new RowCallbackHandler() {
+			
+			@Override
+			public void processRow(ResultSet rs) throws SQLException {
+				tUser.setUserName(rs.getString("userName"));
+				tUser.setPassword(rs.getString("password"));
+			}
+		});
+		return tUser;
+	}
 }

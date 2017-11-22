@@ -1,9 +1,14 @@
 package com.mfkcel.test;
 
 import java.util.List;
+
+import org.junit.gen5.api.AfterEach;
+import org.junit.gen5.api.BeforeEach;
+import org.junit.gen5.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.mfkcel.dao.UserDao;
 import com.mfkcel.daoimpl.UserDaoImpl;
 import com.mfkcel.model.User;
 
@@ -49,5 +54,16 @@ class UserDaoImplTest {
 		User user = new User("mfkcel", "123");
 		User rUser = userDao.login5(user);
 		System.out.println(rUser);
+	}
+	
+	public static void main(String [] args){
+		
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		UserDaoImpl userDao = ac.getBean("userDao", UserDaoImpl.class);
+		User user = new User("mfkcel", "123");
+		User rUser = userDao.login5(user);
+		User rUser2 = userDao.login6(user);
+		System.out.println("1:" +rUser);
+		System.out.println(rUser2);
 	}
 }
