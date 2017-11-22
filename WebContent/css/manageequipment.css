@@ -3,7 +3,7 @@
 	border-radius: 25px;
 	margin: 30% auto;
 	
-	font: bold 20px å®‹ä½“;
+	font: bold 20px ËÎÌå;
 	padding: 15px;
 	
 }
@@ -26,4 +26,9 @@
 	color: white;
 	padding: 10px;
 	line-height: 25px;
+}
+
+#info{
+	color: red;
+	font-size: 30px;
 }

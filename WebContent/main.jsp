@@ -10,12 +10,26 @@
 	<script src="${pageContext.request.contextPath }/bootstrap/js/jquery.min.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/manageequipment.css">
 </head>
+<%
+	Object user = request.getAttribute("currentUser");
+	if(user == null) {
+		response.sendRedirect("./login.jsp");
+	}
+	Object info = request.getAttribute("mainPage");
+	String mainPage = null;
+	if(info == null){
+		mainPage = "./jsp/welcome.jsp";
+	}
+	else {
+		mainPage = (String)info;
+	}
+%>
 <body>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="navbar-inverse" id="pageheader">
-					<span id="left">设备管理系统</span>
+					<span id="left">设备管理系统</span>
 					<span id="right" class="col-md-offset-7">当前用户:&nbsp;<span></span></span>
 				</div>
 			</div>
@@ -41,7 +55,7 @@
 					</div>
 					<div class="row">
 						<div class="content">
-							<jsp:include page="${mainPage }"></jsp:include>
+							<jsp:include page="<%=mainPage %>"></jsp:include>
 						
 						</div>
 					</div>

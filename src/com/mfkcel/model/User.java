@@ -8,6 +8,14 @@ public class User {
 	private String roleName; // 1 管理员  2 使用人员 3 维修人员
 	private Integer deptId;
 	
+	
+	public User(String userName, String password) {
+		this.userName = userName;
+		this.password = password;
+	}
+	
+	public User() {}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -44,6 +52,10 @@ public class User {
 	public void setDeptId(Integer deptId) {
 		this.deptId = deptId;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", trueName=" + trueName
+				+ ", roleName=" + roleName + ", deptId=" + deptId + "]";
+	}
 }
