@@ -1,16 +1,9 @@
 package com.mfkcel.test;
 
 import java.util.List;
-
-import javax.annotation.Resource;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mfkcel.dao.UserDao;
 import com.mfkcel.daoimpl.UserDaoImpl;
 import com.mfkcel.model.User;
 
@@ -51,4 +44,10 @@ class UserDaoImplTest {
 		}
 	}
 	
+	@Test
+	void testLogin5() {
+		User user = new User("mfkcel", "123");
+		User rUser = userDao.login5(user);
+		System.out.println(rUser);
+	}
 }
