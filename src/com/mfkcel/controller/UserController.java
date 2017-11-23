@@ -1,4 +1,4 @@
-package com.mfkcel.action;
+package com.mfkcel.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -6,20 +6,19 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mfkcel.model.User;
 import com.mfkcel.service.UserService;
 
 @Controller
-@RequestMapping(name="/user")
-public class UserAction {
+@RequestMapping("/user")
+public class UserController {
 	
 	@Resource
 	private UserService userSerice;
 	
 	//这里为什么不使用ModelAndView 或者说Model
-	@RequestMapping(name="/login", method=RequestMethod.POST)
+	@RequestMapping("/login")
 	public String login(User user, HttpServletRequest request) {
 		User resultUser = userSerice.login(user);
 		if(resultUser.getId() == null) {

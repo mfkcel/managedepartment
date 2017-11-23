@@ -1,4 +1,4 @@
-package com.mfkcel.serviceimpl;
+package com.mfkcel.service.impl;
 
 import javax.annotation.Resource;
 

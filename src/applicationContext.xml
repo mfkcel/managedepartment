@@ -18,8 +18,7 @@
    
    <!-- 自动加载构建bean 不能写成 base-package='com.mfkcel' -->  
     <context:component-scan base-package="com.mfkcel.service" />  
-    <context:component-scan base-package="com.mfkcel.daoimpl" />  
-    <context:component-scan base-package="com.mfkcel.test" />  
+    <context:component-scan base-package="com.mfkcel.dao" />   
   
    <!-- 配置数据源 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"

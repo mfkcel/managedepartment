@@ -18,31 +18,31 @@
 		<div class="loginwrap">
 			<div class="col-md-4 col-md-offset-5" id="login">
 				<div>
-					<form action="" method="post">
+					<form action="${pageContext.request.contextPath }/user/login.do" method="post">
 						<table>
 							<tr>
 								<td>用户名:&nbsp;&nbsp;</td>
-								<td><input name="username" type="text" /></td>
+								<td><input name="userName" type="text" value="${user.userName }"/></td>
 							</tr>
 							<tr>
 								<td colspan="2"><br /></td>
 							</tr>
 							<tr>
 								<td>密&nbsp;码&nbsp;&nbsp;&nbsp;</td>
-								<td><input type="password" name="password" /></td>
+								<td><input type="password" name="password" value="${user.password }"/></td>
 							</tr>
 							<tr>
 								<td colspan="2"><br /></td>
 							</tr>
 							<tr>
-								<td><input type="button" value="重置" /></td>
-								<td><input type="submit" value="登陆" /></td>
+								<td><input type="button" value="重置" class="btn btn-primary"/></td>
+								<td><input type="submit" value="登陆" class="btn btn-primary"/></td>
 							</tr>
 							<tr>
 								<td colspan="2"><br /></td>
 							</tr>
 							<tr>
-								<td colspan="2"><span id="info"></span></td>
+								<td colspan="2"><span id="info">${erroMsg }</span></td>
 							</tr>
 						</table>
 					</form>

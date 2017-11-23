@@ -1,4 +1,4 @@
-package com.mfkcel.daoimpl;
+package com.mfkcel.dao.impl;
 
 
 import java.sql.ResultSet;
@@ -26,9 +26,14 @@ public class UserDaoImpl implements UserDao {
 			public User extractData(ResultSet rs) throws SQLException, DataAccessException {
 				if(!rs.next()) return null;
 				User tUser = new User(rs.getString("userName"), rs.getString("password"));
+				tUser.setDeptId(rs.getInt("deptId"));
+				tUser.setId(rs.getInt("id"));
+				tUser.setRoleName(rs.getString("roleName"));
+				tUser.setTrueName(rs.getString("trueName"));
 				return tUser;
 			}
 		});
+		if(rUser == null) return user;
 		return rUser;
 	}
 	

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mfkcel.daoimpl.UserDaoImpl;
+import com.mfkcel.dao.impl.UserDaoImpl;
 import com.mfkcel.model.User;
 
 class UserDaoImplTest {

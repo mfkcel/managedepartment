@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/manageequipment.css">
 </head>
 <%
-	Object user = request.getAttribute("currentUser");
+	Object user = session.getAttribute("currentUser");
 	if(user == null) {
 		response.sendRedirect("./login.jsp");
 	}
