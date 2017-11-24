@@ -8,12 +8,12 @@
 	<div class="input-group">
 	      <input type="text" class="form-control" placeholder="请输入要查询的部门...">
 	      <span class="input-group-btn">
-	        <a class="btn btn-primary" type="button">查&nbsp;&nbsp;找</a>
+	        <a class="btn btn-primary" role="button" href="">查&nbsp;&nbsp;找</a>
 	      </span>
 	</div><!-- /input-group -->
 	</div>
 	<div class="col-md-2 col-md-offset-5">
-		<button type="button" class="btn btn-primary">新&nbsp;&nbsp;增</button>
+		<a role="button" href="${pageContext.request.contextPath }/department/pre" class="btn btn-primary">新&nbsp;&nbsp;增</a>
 	</div>
 </div><!-- end row -->
 <br/>
@@ -34,8 +34,8 @@
 					<td>${department.departName }</td>
 					<td>${department.remark}</td>
 					<td>
-						<a class="btn btn-info" href="#">修&nbsp;改</a>&nbsp;&nbsp;&nbsp;&nbsp;
-						<a class="btn btn-danger" href="#">删&nbsp;除</a>
+						<a class="btn btn-info" href="${pageContext.request.contextPath }/department/pre?id=${department.id}">修&nbsp;改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						<a class="btn btn-danger" href="${pageContext.request.contextPath }/department/delete?id=${department.id}">删&nbsp;除</a>
 					</td>
 				</tr>
 			</c:forEach>

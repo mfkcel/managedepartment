@@ -14,11 +14,18 @@ public class DepartmentController {
 	@Resource
 	private DepartmentService departmentService;
 	
-	@RequestMapping("list")
+	@RequestMapping("/list")
 	public String list(HttpServletRequest request) {
 		String mainPage ="./jsp/departlist.jsp";
 		request.setAttribute("mainPage", mainPage);
 		request.setAttribute("departments", departmentService.getDepartments());
 		return "main";
+	}
+	
+	@RequestMapping("/delete")
+	public String delete(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		departmentService.deleteDepartmentByDeptId(id);
+		return "list";
 	}
 }

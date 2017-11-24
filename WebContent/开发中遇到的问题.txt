@@ -37,3 +37,13 @@
           ResultSet，自己根据每行数据组装Customer对象，自己将组装后的Customer对象添加到集合类  中，方法最终只负责将组装完成的集合返回。
           
    mysql update多个字段时每个字段用逗号连接不是and 例:update t_department set deptName=? ,remark=? where id=?
+   
+   jsp突然出现下列问题
+   org.apache.jasper.JasperException: This absolute uri http://java.sun.com/jsp/jstl/core) cannot be resolved in either web.xml or the jar files deployed with this application
+
+web项目出现如上问题，据查是版本问题：
+    JSTL 1.0 的声明是：
+    <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core " %>
+
+    JSTL1.1以后 的声明是：
+    <%@ taglib prefix="c" uri=http://java.sun.com/jsp/jstl/core %>
