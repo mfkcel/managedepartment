@@ -1,5 +1,39 @@
+设备管理系统开发中所遇问题  2017.11.20项目启动
+2017.11.20 项目异地同步问题 使用github解决
+2017.11.22 spring 下JdbcTemplate的使用   已解决
+2017.11.22 junit4 与 junit5有很大的不同
+2017.11.23 springmvc 页面请求参数的获取  已解决
 2017.11.24  1.UserDao查询出的User信息没有全部取出，导致登陆总是失败
 			2.配置无误，但就是请求不到资源，重启eclipse解决
 			3.Controller中把当前用户信息设置在session范围中，却在request中取导致总是停留中login.jsp页面
 			4.springmvc请求以*.do结尾时，只应出现在请求页面中，在RequestMapping中不会出现 
+2017.11.24  获取数据时出现下列错误:
+				org.springframework.dao.TransientDataAccessResourceException:
+				 PreparedStatementCallback; SQL [select * from t_department where id=?];
+				 Before start of result set; nested exception is java.sql.SQLException:
+			错误原因: 参数没定义
 			
+			@Override
+	public Department getDepartmentByDeptId(String deptId) {
+		String sql = "select * from t_department where =?";
+		return jdbcTemplate.query(sql, new Object[]{Integer.parseInt(deptId)}, new ResultSetExtractor<Department>() {
+
+			@Override
+			public Department extractData(ResultSet rs) throws SQLException, DataAccessException {
+				Department department = new Department();
+				department.setId(rs.getInt("id")); //这段代码错在这里，因此rs需要手动rs.next --RowMapper与RowCallbackHandler不需要手动设置
+				department.setDepartName(rs.getString("deptName"));
+				department.setRemark(rs.getString("remark"));
+				return department;
+			}
+		});
+	}
+	
+	1、使用三种Callback接口作为参数的query方法的返回值不同:
+               以ResultSetExtractor作为方法参数的query方法返回Object型结果，要使用查询结果，我们需要对 其进行强制转型；
+               以RowMapper接口作为方法参数的query方法直接返回List型的结果；
+               以RowCallbackHandler作为方法参数的query方法，返回值为void；
+    2、使用ResultSetExtractor作为Callback接口处理查询结果，我们需要自己声明集合类，自己遍历                       
+          ResultSet，自己根据每行数据组装Customer对象，自己将组装后的Customer对象添加到集合类  中，方法最终只负责将组装完成的集合返回。
+          
+   mysql update多个字段时每个字段用逗号连接不是and 例:update t_department set deptName=? ,remark=? where id=?

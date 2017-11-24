@@ -30,21 +30,21 @@
 			<div class="col-md-12">
 				<div class="navbar-inverse" id="pageheader">
 					<span id="left">设备管理系统</span>
-					<span id="right" class="col-md-offset-7">当前用户:&nbsp;<span></span></span>
+					<span id="right" class="col-md-offset-7">当前用户:&nbsp;<span>${currentUser.userName }</span></span>
 				</div>
 			</div>
 		</div>
 		<br/>
 		<div class="row">
 			<div class="col-md-2">
-				<ul class="nav nav-pills nav-stacked">
-					<li role="presentation"><a href="">系统菜单</a></li>
-					<li role="presentation"><a href="">部门管理</a></li>
-					<li role="presentation"><a href="">用户管理</a></li>
-					<li role="presentation"><a href="">设备类型管理</a></li>
-					<li role="presentation"><a href="">采购管理</a></li>
-					<li role="presentation"><a href="">安全退出</a></li>
-				</ul>
+				<div class="list-group">
+					<a class="list-group-item" href="${pageContext.request.contextPath}/system">系统菜单</a>
+					<a class="list-group-item" href="${pageContext.request.contextPath}/department/list.do">部门管理</a>
+					<a class="list-group-item" href="${pageContext.request.contextPath}/user">用户管理</a>
+					<a class="list-group-item" href="${pageContext.request.contextPath}/equipment">设备类型管理</a>
+					<a class="list-group-item" href="${pageContext.request.contextPath}/buy">采购管理</a>
+					<a class="list-group-item" href="${pageContext.request.contextPath}/system/logout">安全退出</a>
+				</div>
 			</div>
 			<div class="col-md-7">
 				<div class="container">

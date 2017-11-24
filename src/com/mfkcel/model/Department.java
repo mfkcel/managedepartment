@@ -2,7 +2,7 @@ package com.mfkcel.model;
 
 public class Department {
 	private Integer id;
-	private String deartName;
+	private String departName;
 	private String remark;
 	public Integer getId() {
 		return id;
@@ -10,17 +10,23 @@ public class Department {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getDeartName() {
-		return deartName;
-	}
-	public void setDeartName(String deartName) {
-		this.deartName = deartName;
-	}
+	
 	public String getRemark() {
 		return remark;
 	}
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+	public String getDepartName() {
+		return departName;
+	}
+	public void setDepartName(String departName) {
+		this.departName = departName;
+	}
+	
+	@Override
+	public String toString() {
+		return "Department [id=" + id + ", departName=" + departName + ", remark=" + remark + "]";
 	}
 	
 	
