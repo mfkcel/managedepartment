@@ -10,8 +10,16 @@ public class Repair {
 	private Date repairTime;  //报修时间
 	private Date finishTime; //处理完成时间
 	private Integer state;  //最终设备状态 : 1. 维修成功 2.设备报废
+	private String stateStr;
 	private Integer finishState; //是否完成  1.未处理状态 2.处理完成
+	private String finishStateStr;
 	
+	public String getStateStr() {
+		return stateStr;
+	}
+	public String getFinishStateStr() {
+		return finishStateStr;
+	}
 	public Integer getId() {
 		return id;
 	}
