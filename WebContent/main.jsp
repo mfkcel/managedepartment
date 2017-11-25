@@ -13,7 +13,7 @@
 <%
 	Object user = session.getAttribute("currentUser");
 	if(user == null) {
-		response.sendRedirect("./login.jsp");
+		response.sendRedirect(request.getContextPath() + "/login.jsp");
 	}
 	Object info = request.getAttribute("mainPage");
 	String mainPage = null;

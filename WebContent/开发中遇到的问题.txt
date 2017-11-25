@@ -40,10 +40,5 @@
    
    jsp突然出现下列问题
    org.apache.jasper.JasperException: This absolute uri http://java.sun.com/jsp/jstl/core) cannot be resolved in either web.xml or the jar files deployed with this application
-
-web项目出现如上问题，据查是版本问题：
-    JSTL 1.0 的声明是：
-    <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core " %>
-
-    JSTL1.1以后 的声明是：
-    <%@ taglib prefix="c" uri=http://java.sun.com/jsp/jstl/core %>
+	这个问题在网络上查是版本问题，是WebContent下缺失standard.jar 与 jstl.jar只要把这两个包放在WebContent/WEB-INF/lib 下问题就解决了
+	可是我用这个方法没有把我的问题解决掉

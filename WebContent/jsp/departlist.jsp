@@ -13,7 +13,7 @@
 	</div><!-- /input-group -->
 	</div>
 	<div class="col-md-2 col-md-offset-5">
-		<a role="button" href="${pageContext.request.contextPath }/department/pre" class="btn btn-primary">新&nbsp;&nbsp;增</a>
+		<a role="button" href="${pageContext.request.contextPath }/department/pre.do" class="btn btn-primary">新&nbsp;&nbsp;增</a>
 	</div>
 </div><!-- end row -->
 <br/>
@@ -34,8 +34,8 @@
 					<td>${department.departName }</td>
 					<td>${department.remark}</td>
 					<td>
-						<a class="btn btn-info" href="${pageContext.request.contextPath }/department/pre?id=${department.id}">修&nbsp;改</a>&nbsp;&nbsp;&nbsp;&nbsp;
-						<a class="btn btn-danger" href="${pageContext.request.contextPath }/department/delete?id=${department.id}">删&nbsp;除</a>
+						<a class="btn btn-info" href="${pageContext.request.contextPath }/department/pre.do?id=${department.id}">修&nbsp;改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						<a class="btn btn-danger" href="${pageContext.request.contextPath }/department/delete.do?id=${department.id}">删&nbsp;除</a>
 					</td>
 				</tr>
 			</c:forEach>
