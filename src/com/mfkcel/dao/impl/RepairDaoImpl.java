@@ -22,7 +22,9 @@ public class RepairDaoImpl implements RepairDao {
 	private JdbcTemplate jdbcTemplate;
 	@Override
 	public List<Repair> getRepairs() {
-		String sql = "select * from t_repair";
+		String sql = "SELECT a.id, a.equipmentId, a.userman, a.repairman, a.repairTime, a.finishTime, a.state, a.finishState, b.name, c.typeName"
+				+ " FROM t_repair AS a, t_equipment AS b, t_equipmenttype AS c " 
+				+ "WHERE a.equipmentId = b.id AND b.typeId = c.id";
 		return jdbcTemplate.query(sql, new RowMapper<Repair>() {
 
 			@Override
@@ -31,6 +33,8 @@ public class RepairDaoImpl implements RepairDao {
 				repair.setId(rs.getInt("id"));
 				repair.setEquipmentId(rs.getInt("equipmentId"));
 				repair.setUserman(rs.getString("userman"));
+				repair.setEquiptName(rs.getString("name"));
+				repair.setEquiptTypeName(rs.getString("typeName"));
 				repair.setRepairmen(rs.getString("repairman"));
 				repair.setRepairTime(rs.getDate("repairTime"));
 				repair.setFinishTime(rs.getDate("finishTime"));
@@ -43,7 +47,9 @@ public class RepairDaoImpl implements RepairDao {
 
 	@Override
 	public Repair getRepairById(String id) {
-		String sql = "select * from t_repair where id=?";
+		String sql = "SELECT a.id, a.equipmentId, a.userman, a.repairman, a.repairTime, a.finishTime, a.state, a.finishState, b.name, c.typeName"
+				+ " FROM t_repair AS a, t_equipment AS b, t_equipmenttype AS c " 
+				+ "WHERE a.id=? and a.equipmentId = b.id AND b.typeId = c.id";
 		return jdbcTemplate.query(sql, new Object[]{id}, new ResultSetExtractor<Repair>() {
 
 			@Override
@@ -52,6 +58,8 @@ public class RepairDaoImpl implements RepairDao {
 				Repair repair = new Repair();
 				repair.setId(rs.getInt("id"));
 				repair.setEquipmentId(rs.getInt("equipmentId"));
+				repair.setEquiptName(rs.getString("name"));
+				repair.setEquiptTypeName(rs.getString("typeName"));
 				repair.setUserman(rs.getString("userman"));
 				repair.setRepairmen(rs.getString("repairman"));
 				repair.setRepairTime(rs.getDate("repairTime"));

@@ -17,7 +17,7 @@ public class DepartmentController {
 	
 	@RequestMapping("/list")
 	public String list(HttpServletRequest request) {
-		String mainPage ="./jsp/departlist.jsp";
+		String mainPage ="./jsp/department/list.jsp";
 		request.setAttribute("mainPage", mainPage);
 		request.setAttribute("departments", departmentService.getDepartments());
 		return "main";
@@ -34,7 +34,7 @@ public class DepartmentController {
 	@RequestMapping("/pre")
 	public String pre(HttpServletRequest request) {
 		String id = request.getParameter("id");
-		String mainPage ="./jsp/pre.jsp";
+		String mainPage ="./jsp/department/pre.jsp";
 		request.setAttribute("mainPage", mainPage);
 		request.setAttribute("department", departmentService.getDepartmentByDeptId(id));
 		//这里一定要带do

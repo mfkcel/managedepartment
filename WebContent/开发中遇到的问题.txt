@@ -42,3 +42,6 @@
    org.apache.jasper.JasperException: This absolute uri http://java.sun.com/jsp/jstl/core) cannot be resolved in either web.xml or the jar files deployed with this application
 	这个问题在网络上查是版本问题，是WebContent下缺失standard.jar 与 jstl.jar只要把这两个包放在WebContent/WEB-INF/lib 下问题就解决了
 	可是我用这个方法没有把我的问题解决掉,最后我是直接把tld文件放在工程下才解决掉的
+	
+	2017.11.26
+	DAO怎么写才能简单

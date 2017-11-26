@@ -1,5 +1,7 @@
 package com.mfkcel.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
@@ -17,6 +19,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User login(User user) {
 		return userDao.login(user);
+	}
+
+	@Override
+	public List<User> getUsersByRoleName(String roleName) {
+		// TODO Auto-generated method stub
+		return userDao.getUsersByRoleName(roleName);
 	}
 
 }

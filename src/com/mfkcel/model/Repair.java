@@ -5,21 +5,16 @@ import java.util.Date;
 public class Repair {
 	private Integer id;
 	private Integer equipmentId;
+	private String equiptName; //设备名
+	private String equiptTypeName; //设备类型名
 	private String userman; //报修人员
 	private String repairmen; //维修人员
 	private Date repairTime;  //报修时间
 	private Date finishTime; //处理完成时间
 	private Integer state;  //最终设备状态 : 1. 维修成功 2.设备报废
-	private String stateStr;
-	private Integer finishState; //是否完成  1.未处理状态 2.处理完成
-	private String finishStateStr;
+	private Integer finishState; //是否完成  1.未处理状态 2.处理完成 3. 处理中
 	
-	public String getStateStr() {
-		return stateStr;
-	}
-	public String getFinishStateStr() {
-		return finishStateStr;
-	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -68,6 +63,17 @@ public class Repair {
 	public void setFinishState(Integer finishState) {
 		this.finishState = finishState;
 	}
-	
+	public String getEquiptName() {
+		return equiptName;
+	}
+	public void setEquiptName(String equiptName) {
+		this.equiptName = equiptName;
+	}
+	public String getEquiptTypeName() {
+		return equiptTypeName;
+	}
+	public void setEquiptTypeName(String equiptTypeName) {
+		this.equiptTypeName = equiptTypeName;
+	}
 	
 }

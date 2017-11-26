@@ -3,10 +3,13 @@ package com.mfkcel.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+
 import javax.annotation.Resource;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.mfkcel.dao.UserDao;
@@ -35,6 +38,20 @@ public class UserDaoImpl implements UserDao {
 		});
 		if(rUser == null) return user;
 		return rUser;
+	}
+
+	@Override
+	public List<User> getUsersByRoleName(String roleName) {
+		String sql = "select * from t_user where roleName=?";
+		return jdbcTemplate.query(sql, new Object[] {roleName}, new RowMapper<User>() {
+
+			@Override
+			public User mapRow(ResultSet rs, int arg1) throws SQLException {
+				User user = new User();
+				user.setUserName(rs.getString("userName"));
+				return user;
+			}
+		});
 	}
 	
 }

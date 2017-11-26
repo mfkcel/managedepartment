@@ -40,9 +40,9 @@
 				<div class="list-group">
 					<a class="list-group-item" href="${pageContext.request.contextPath}/system">系统菜单</a>
 					<a class="list-group-item" href="${pageContext.request.contextPath}/department/list.do">部门管理</a>
-					<a class="list-group-item" href="${pageContext.request.contextPath}/user">用户管理</a>
-					<a class="list-group-item" href="${pageContext.request.contextPath}/equipment">设备类型管理</a>
-					<a class="list-group-item" href="${pageContext.request.contextPath}/buy">采购管理</a>
+					<a class="list-group-item" href="${pageContext.request.contextPath}/user/list.do">用户管理</a>
+					<a class="list-group-item" href="${pageContext.request.contextPath}/equipmenttype/list.do">设备类型管理</a>
+					<a class="list-group-item" href="${pageContext.request.contextPath}/equipment/list.do">采购管理</a>
 					<a class="list-group-item" href="${pageContext.request.contextPath}/system/logout">安全退出</a>
 				</div>
 			</div>
