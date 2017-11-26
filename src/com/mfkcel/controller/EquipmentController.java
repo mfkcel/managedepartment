@@ -39,7 +39,7 @@ public class EquipmentController {
 	@RequestMapping("/pre")
 	public String pre(HttpServletRequest request) {
 		String id = request.getParameter("id");
-		String mainPage ="./jsp/equipemnt/pre.jsp";
+		String mainPage ="./jsp/equipment/pre.jsp";
 		request.setAttribute("mainPage", mainPage);
 		request.setAttribute("equipment", equipmentService.getEquipmentById(id));
 		request.setAttribute("equipmentTypes", equipmentTypeService.getEquipmentTypes());

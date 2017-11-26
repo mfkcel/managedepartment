@@ -37,7 +37,7 @@
 					<td>${equipment.no}</td>
 					<td>${equipment.name}</td>
 					<td>${equipment.remark}</td>
-					<td>
+					<%-- <td>
 						<select class="form-control">
 						  <c:forEach items="equipmentTypes" var="equipmentType">
 						  	<c:if test="${equipmentType.id eq equipment.typeId }">
@@ -45,7 +45,8 @@
 						  	</c:if>
 						  </c:forEach>
 						</select>
-					</td>
+					</td> --%>
+					<td>hh</td>
 					<td>
 						<c:choose>
 							<c:when test="${equipment.state == 1 }"><p class="text-primary">正常</p></c:when>

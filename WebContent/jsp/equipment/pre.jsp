@@ -29,7 +29,7 @@
 				<div>
 					<select class="form-control" name="typeId">
 					  <c:forEach items="equipmentTypes" var="equipmentType">
-					  	<option value="${equipmentType.id }">${equipmentType.name } </option>
+					  	<option value="${equipmentType.id }">${equipmentType.typeName } </option>
 					  </c:forEach>
 					</select>
 				</div> <!-- end equipmentType -->

@@ -33,7 +33,7 @@ public class EquipmentTypeController {
 	@RequestMapping("/pre")
 	public String pre(HttpServletRequest request) {
 		String id = request.getParameter("id");
-		String mainPage ="./jsp/equipemnttype/pre.jsp";
+		String mainPage ="./jsp/equipmenttype/pre.jsp";
 		request.setAttribute("mainPage", mainPage);
 		request.setAttribute("equipmentType", equipmentTypeService.getEquipmentType(id));
 		//这里一定要带do
