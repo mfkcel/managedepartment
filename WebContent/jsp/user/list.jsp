@@ -25,6 +25,7 @@
 					<td>序号</td>
 					<td>昵称</td>
 					<td>姓名</td>
+					<td>密码</td>
 					<td>员工类别</td>
 					<td>部门ID</td>
 					<td>操作</td>
@@ -34,8 +35,9 @@
 				<tr>
 					<td>${status.index + 1}</td>
 					<td>${user.userName}</td>
-					<td>****</td>
+					
 					<td>${user.trueName}</td>
+					<td>****</td>
 					<td>${user.roleName}</td>
 					<td>${user.deptId}</td>
 					<td>
