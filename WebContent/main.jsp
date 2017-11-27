@@ -38,7 +38,7 @@
 		<div class="row">
 			<div class="col-md-2">
 				<div class="list-group">
-					<a class="list-group-item" href="${pageContext.request.contextPath}/system">系统菜单</a>
+					<a class="list-group-item" href="${pageContext.request.contextPath}/repair/list.do">系统菜单</a>
 					<a class="list-group-item" href="${pageContext.request.contextPath}/department/list.do">部门管理</a>
 					<a class="list-group-item" href="${pageContext.request.contextPath}/user/list.do">用户管理</a>
 					<a class="list-group-item" href="${pageContext.request.contextPath}/equipmenttype/list.do">设备类型管理</a>

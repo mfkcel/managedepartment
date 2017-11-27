@@ -38,4 +38,37 @@ public class UserController {
 			return "redirect:/main.jsp";
 		}
 	}
+	
+	@RequestMapping("/list")
+	public String list(HttpServletRequest request) {
+		request.setAttribute("mainPage", "./jsp/user/list.jsp");
+		request.setAttribute("users", userSerice.getUsers());
+		return "main";
+	}
+	
+	@RequestMapping("/save")
+	public String add(HttpServletRequest request, User user) {
+		if(user.getId() != null)
+			userSerice.update(user);
+		else {
+			userSerice.add(user);
+		}
+		return "forward:/user/list.do";
+	}
+
+	@RequestMapping("/delete")
+	public String delete(HttpServletRequest request) {
+		userSerice.deleteById(request.getParameter("id"));
+		return "forward:/user/list.do";
+	}
+	
+	@RequestMapping("/pre")
+	public String pre(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		if(id != null) {
+			request.setAttribute("user", userSerice.getUserById(id));
+		}
+		request.setAttribute("mainPage", "./jsp/user/pre.jsp");
+		return "main";
+	}
 }

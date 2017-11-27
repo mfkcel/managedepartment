@@ -5,18 +5,18 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
-			<form action="${pageContext.request.contextPath }/equipmenttype/save.do" method="post">
-				<input type="hidden" value="${equipmentType.id }" name="id">
+			<form action="${pageContext.request.contextPath }/department/save.do" method="post">
+				<input type="hidden" value="${department.id }" name="id">
 				<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon3">设备类型名称</span>
-				  <input type="text" class="form-control" id="basic-url" name="typeName"
-				  						aria-describedby="basic-addon3" value="${equipmentType.typeName }">
+				  <span class="input-group-addon" id="basic-addon3">部门名称</span>
+				  <input type="text" class="form-control" id="basic-url" name="departName"
+				  						aria-describedby="basic-addon3" value="${department.departName }">
 				</div>
 				<br/>
 				<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon3">设备类型简介</span>
+				  <span class="input-group-addon" id="basic-addon3">部门简介</span>
 				  <input type="text" class="form-control" id="basic-url" name="remark"
-				  						aria-describedby="basic-addon3" value="${equipmentType.remark }">
+				  						aria-describedby="basic-addon3" value="${department.remark }">
 				</div>
 				<br/>
 				<button type="button" onclick="javascrip:history.back();" 

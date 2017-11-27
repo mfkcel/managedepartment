@@ -9,43 +9,63 @@
 				<div class="input-group">
 				  <span class="input-group-addon" id="basic-addon3">维修处理编号</span>
 				  <input type="text" class="form-control" id="basic-url" name="id"
-				  						aria-describedby="basic-addon3" value="${department.departName }" disabled="disabled">
+				  						aria-describedby="basic-addon3" value="${repair.id }" disabled="disabled">
 				</div>
 				<br/>
 				
 				<div class="input-group">
-				  <label>
-				  	设备名称
-				  	<select class="form-control" name="equipmentId">
-				  		<c:forEach items="${equipmets }" var="equipment">
-				  			<option value="${equipment.id }">${equipment.name }</option>
+				  	<span class="input-group-addon" id="basic-addon3">设备名称</span>
+				  	<select class="form-control" name="equipmentId" aria-describedby="basic-addon3">
+				  		<c:forEach items="${equipments }" var="equipment">
+				  			<c:choose>
+					  			<c:when test="${repair.equipmentId == equipment.id }">
+					  				<option value="${equipment.id }" selected="selected">${equipment.name }</option>
+					  			</c:when>
+					  			<c:otherwise>
+					  				<option value="${equipment.id }">${equipment.name }</option>
+					  			</c:otherwise>
+				  			</c:choose>
 				  		</c:forEach>
 				  	</select>
-				  </label>
 				</div>
 				<br/>
 				
 				<div class="input-group">
-				  <label>
-				  	报修人员
-				  	<select class="form-control" name="useman">
+					<span class="input-group-addon" id="basic-addon3">报修人员</span>
+				  	
+				  	<select class="form-control" name="userman" aria-describedby="basic-addon3">
 				  		<c:forEach items="${users }" var="user">
-				  			<option value="${user.userName }">${user.userName }</option>
+				  			
+				  			<c:choose>
+				  				<c:when test="${repair.userman == user.userName}">
+				  					<option value="${user.userName }" selected="selected">${user.userName }</option>
+				  				</c:when>
+				  				<c:otherwise>
+				  					<option value="${user.userName }" >${user.userName }</option>
+				  				</c:otherwise>
+				  			</c:choose>
 				  		</c:forEach>
 				  	</select>
-				  </label>
 				</div>
 				<br/>
 				
 				<div class="input-group">
-				  <label>
-				  	维修人员
-				  	<select class="form-control" name="repairmen">
+				  <span class="input-group-addon" id="basic-addon3">维修人员</span>
+				  	
+				  	<select class="form-control" name="repairmen" aria-describedby="basic-addon3">
 				  		<c:forEach items="${rusers }" var="ruser">
-				  			<option value="${ruser.userName }">${ruser.userName }</option>
+				  			
+				  			<c:choose>
+				  				<c:when test="${repair.repairmen == ruser.userName}">
+				  					<option value="${ruser.userName }" selected="selected">${ruser.userName }</option>
+				  				</c:when>
+				  				
+				  				<c:otherwise>
+				  					<option value="${ruser.userName }">${ruser.userName }</option>
+				  				</c:otherwise>
+				  			</c:choose>
 				  		</c:forEach>
 				  	</select>
-				  </label>
 				</div>
 				<br/>
 				

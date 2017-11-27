@@ -6,9 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mfkcel.dao.EquipmentDao;
-import com.mfkcel.dao.EquipmentTypeDao;
 import com.mfkcel.model.Repair;
+import com.mfkcel.service.EquipmentService;
 import com.mfkcel.service.RepairService;
 import com.mfkcel.service.UserService;
 
@@ -18,7 +17,7 @@ public class RepairController {
 	@Resource
 	private RepairService repairService;
 	@Resource
-	private EquipmentDao equipmentDao;
+	private EquipmentService equipmentService;
 	@Resource
 	private UserService userService;
 	
@@ -27,8 +26,7 @@ public class RepairController {
 		String mainPage ="./jsp/repair/list.jsp";
 		request.setAttribute("mainPage", mainPage);
 		request.setAttribute("repairs", repairService.getRepairs());
-		request.setAttribute("users", userService.getUsersByRoleName("使用者"));
-		request.setAttribute("rusers", userService.getUsersByRoleName("维修者"));
+		
 		return "main";
 	}
 	
@@ -46,7 +44,9 @@ public class RepairController {
 		String mainPage ="./jsp/repair/pre.jsp";
 		request.setAttribute("mainPage", mainPage);
 		request.setAttribute("repair", repairService.getRepairById(id));
-		request.setAttribute("equiptments", equipmentDao.getEquipments());
+		request.setAttribute("users", userService.getUsersByRoleName("使用者"));
+		request.setAttribute("rusers", userService.getUsersByRoleName("维修者"));
+		request.setAttribute("equipments", equipmentService.getEquipments());
 		//这里一定要带do
 		return "main";
 	}

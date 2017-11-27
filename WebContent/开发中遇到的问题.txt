@@ -45,3 +45,17 @@
 	
 	2017.11.26
 	DAO怎么写才能简单
+	
+	2017.11.27 
+	javax.el.PropertyNotFoundException: Property 'id' not found on type java.lang.String
+	昨天晚上就出现这个问题，半天都找不到错误原因。 后来发现是<c:forEach>表达式出错 items的取值要用el表达式式取出 应该是写成这样items="${}"
+	<c:forEach items="${equipmentTypes}" var="equipmentType">
+						  	<c:if test="${equipmentType.id eq equipment.typeId }">
+						  		<option >${equipmentType.typeName}</option>
+						  	</c:if>
+						  </c:forEach>
+						  
+ javax.el.ELException: Cannot convert 15-2-2 上午12:00 of type class java.sql.Date to class java.lang.Long
+ 
+ html的select列表要怎样编写才好
+ 在做web时若后台没有报错，数据也有，但页面没有显示内容很有可能是页面使用的变量名与后台的变量名不一致
